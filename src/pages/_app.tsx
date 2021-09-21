@@ -14,9 +14,16 @@ const App: FunctionComponent<AppProps> = (props) => {
         <title>App Name</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <link rel="shortcut icon" href="/favicon.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        <Component {...pageProps} />
         <GlobalStyles />
       </ThemeProvider>
     </>
