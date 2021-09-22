@@ -1,35 +1,36 @@
-import {NavLink} from "react-router-dom";
-import {useTranslation} from "react-i18next";
-import {useDispatch} from "react-redux";
-
-import classes from "./NavbarItems.module.css";
-
-import {cursorActions} from "../../../store/customCursor";
+import NavLink from '@components/Navbar/NavLink/NavLink';
+import { ListWrapper, A, ListItem } from '@components/Navbar/NavbarItems/NavbarItems.styles';
+import en from '@components/locales/en';
+import pl from '@components/locales/pl';
+import { useRouter } from 'next/router';
 
 const NavbarItems = () => {
-    const dispatch = useDispatch()
-    const {t} = useTranslation()
+  const router = useRouter();
+  const { locale } = router;
+  const t = locale === 'en' ? en : pl;
 
-    const handleMouseEnter = () => {
-        dispatch(cursorActions.setType('link'))
-    }
+  return (
+    <>
+      <ListWrapper>
+        <ListItem>
+          <NavLink url="/" linkLabel={t.NavbarItemOne} />
+        </ListItem>
+        <ListItem>
+          <NavLink url="/about" linkLabel={t.NavbarItemTwo} />
+        </ListItem>
+        <ListItem>
+          <NavLink url="/projects" linkLabel={t.NavbarItemThree} />
+        </ListItem>
+        <ListItem>
+          <NavLink url="/certificates" linkLabel={t.NavbarItemFour} />
+        </ListItem>
+        <ListItem>
+          <NavLink url="/media" linkLabel="Media" />
+        </ListItem>
+      </ListWrapper>
+      <A href="mailto:bartoszformanowski@gmail.com">{t.NavbarItemFive}</A>
+    </>
+  );
+};
 
-    const handleMouseLeave = () => {
-        dispatch(cursorActions.setType('default'))
-    }
-
-    return (
-        <>
-            <ul className={classes.listWrapper}>
-                <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><NavLink to={'/home'} activeClassName={classes.active}>{t('NavbarItemOne')}</NavLink></li>
-                <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><NavLink to={'/about'} activeClassName={classes.active}>{t('NavbarItemTwo')}</NavLink></li>
-                <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><NavLink to={'/projects'} activeClassName={classes.active}>{t('NavbarItemThree')}</NavLink></li>
-                <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><NavLink to={'/certificates'} activeClassName={classes.active}>{t('NavbarItemFour')}</NavLink></li>
-                <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><NavLink to={'/media'} activeClassName={classes.active}>Media</NavLink></li>
-            </ul>
-            <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={classes.contactLink} href="mailto:bartoszformanowski@gmail.com">{t('NavbarItemFive')}</a>
-        </>
-    )
-}
-
-export default NavbarItems
+export default NavbarItems;

@@ -1,3 +1,3 @@
-import Example from '@utils/LoadingSpinner/LoadingSpinner';
+import Navbar from '@components/Navbar/Navbar';
 
-export default Example;
+export default Navbar;

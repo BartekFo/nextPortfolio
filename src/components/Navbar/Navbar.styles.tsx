@@ -1,10 +1,9 @@
 import styled, { css } from 'styled-components';
 
-import MobileNavbarItems from '@components/Navbar/MobileNavbarItems/MobileNavbarItems';
+// import MobileNavbarItems from '@components/Navbar/MobileNavbarItems/MobileNavbarItems';
+import { getFontFamily, getMedia } from '@styles/utils';
 
-const Nav = styled.nav.attrs<{ isTabletOrMobile: boolean }>(
-  ({ isTabletOrMobile }) => isTabletOrMobile,
-)`
+export const Nav = styled.nav<{ isTabletOrMobile: boolean }>`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
@@ -24,30 +23,39 @@ const Nav = styled.nav.attrs<{ isTabletOrMobile: boolean }>(
     text-decoration: none;
     color: black;
   }
+
+  @media screen and (max-width: ${getMedia('navbar')}) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
-const H1 = styled.h1`
-  font-family: 'Pacifico', cursive;
+export const H1 = styled.h1`
+  font-family: ${getFontFamily('pacifico')};
   font-size: 3rem;
   font-weight: normal;
 `;
 
-const P = styled.p`
+export const P = styled.p`
   font-size: 1.5rem;
 `;
 
-const ChangeLangButton = styled.button`
+export const ChangeLangButton = styled.button`
   background: none;
   border: none;
+  cursor: pointer;
   font-size: 1.5rem;
+  position: relative;
+  width: 30px;
+  height: auto;
+  padding-top: 30px;
 `;
 
-const IconWrapper = styled.div`
+export const IconWrapper = styled.div`
   cursor: pointer;
 `;
 
-const NavbarItemsContainer = styled(MobileNavbarItems)`
-  grid-area: navbarItemsContainer;
-  width: 100%;
-  height: 100%;
-`;
+// export const NavbarItemsContainer = styled(MobileNavbarItems)`
+//   grid-area: navbarItemsContainer;
+//   width: 100%;
+//   height: 100%;
+// `;

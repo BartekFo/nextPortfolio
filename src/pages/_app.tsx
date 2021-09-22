@@ -1,9 +1,12 @@
 import { FunctionComponent } from 'react';
 import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
+import { Provider } from 'react-redux';
 import { AppProps } from 'next/app';
+
 import GlobalStyles from '@styles/GlobalStyles';
 import theme from '@styles/theme';
+import store from '@store/index';
 
 const App: FunctionComponent<AppProps> = (props) => {
   const { Component, pageProps } = props;
@@ -22,8 +25,10 @@ const App: FunctionComponent<AppProps> = (props) => {
         />
       </Head>
       <ThemeProvider theme={theme}>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Component {...pageProps} />
+        <Provider store={store}>
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <Component {...pageProps} />
+        </Provider>
         <GlobalStyles />
       </ThemeProvider>
     </>

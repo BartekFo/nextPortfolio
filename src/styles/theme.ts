@@ -26,7 +26,9 @@ export const animations = {
 `,
 };
 
-export const medias = {};
+export const medias = {
+  navbar: '1124px',
+};
 
 const theme: DefaultTheme = {
   fontFamily,
