@@ -1,5 +1,5 @@
 import NavLink from '@components/Navbar/NavLink/NavLink';
-import { ListWrapper, A, ListItem } from '@components/Navbar/NavbarItems/NavbarItems.styles';
+import { ListWrapper, A, ListItem } from '@components/Navbar/NavbarItems/NavbarItems.styled';
 import en from '@components/locales/en';
 import pl from '@components/locales/pl';
 import { useRouter } from 'next/router';

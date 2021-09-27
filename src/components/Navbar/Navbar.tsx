@@ -12,7 +12,15 @@ import { navbarActions } from '@store/navbar';
 import PolandFlag from '@assets/Poland.png';
 import UKFlag from '@assets/UK.png';
 import NavbarItems from '@components/Navbar/NavbarItems/NavbarItems';
-import { Nav, H1, P, ChangeLangButton, IconWrapper } from '@components/Navbar/Navbar.styles';
+import {
+  Nav,
+  H1,
+  P,
+  ChangeLangButton,
+  IconWrapper,
+  LogoWrapper,
+} from '@components/Navbar/Navbar.styled';
+import MobileNavbarItems from '@components/Navbar/MobileNavbarItems/MobileNavbarItems';
 
 const Navbar = () => {
   const isNavbarOpen = useSelector((state: RootState) => state.navbar.isNavbarOpen);
@@ -42,7 +50,7 @@ const Navbar = () => {
 
   return (
     <Nav isTabletOrMobile={isTabletOrMobile}>
-      <div>
+      <LogoWrapper>
         <H1>
           <Link href="/">Fórmanowski</Link>
         </H1>
@@ -54,21 +62,23 @@ const Navbar = () => {
             <Image src={UKFlag} alt="United Kingdom Flag" layout="fill" />
           </ChangeLangButton>
         </P>
-      </div>
+      </LogoWrapper>
 
       {!isTabletOrMobile && <NavbarItems />}
       {isTabletOrMobile && (
-        <IconContext.Provider value={{ color: 'black', size: '2em' }}>
-          <IconWrapper>
-            {!isNavbarOpen ? (
-              <GiHamburgerMenu onClick={openNavbarHandler} />
-            ) : (
-              <GrClose onClick={closeNavbarHandler} />
-            )}
-          </IconWrapper>
-        </IconContext.Provider>
+        <>
+          <IconContext.Provider value={{ color: 'black', size: '2em' }}>
+            <IconWrapper>
+              {!isNavbarOpen ? (
+                <GiHamburgerMenu onClick={openNavbarHandler} />
+              ) : (
+                <GrClose onClick={closeNavbarHandler} />
+              )}
+            </IconWrapper>
+          </IconContext.Provider>
+          <MobileNavbarItems isNavbarOpen={isNavbarOpen} />
+        </>
       )}
-      {/* <NavbarItemsContainer isNavbarOpen={isNavbarOpen} /> */}
     </Nav>
   );
 };

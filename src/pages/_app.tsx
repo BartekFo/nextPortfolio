@@ -11,6 +11,9 @@ import store from '@store/index';
 const App: FunctionComponent<AppProps> = (props) => {
   const { Component, pageProps } = props;
 
+  // @ts-ignore
+  const getLayout = Component.getLayout || ((page) => page);
+
   return (
     <>
       <Head>
@@ -27,7 +30,7 @@ const App: FunctionComponent<AppProps> = (props) => {
       <ThemeProvider theme={theme}>
         <Provider store={store}>
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          <Component {...pageProps} />
+          {getLayout(<Component {...pageProps} />, pageProps)}
         </Provider>
         <GlobalStyles />
       </ThemeProvider>

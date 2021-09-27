@@ -1,62 +1,61 @@
-// import { FC } from 'react';
-// import { useTranslation } from 'react-i18next';
-// import { NavLink } from 'react-router-dom';
-// import CSSTransition from 'react-transition-group/CSSTransition';
-//
-// import classes from './MobileNavbarItems.module.css';
+import { FC } from 'react';
+import { useRouter } from 'next/router';
+import { AnimatePresence } from 'framer-motion';
 
-// const MobileNavbarItems: FC<{ isNavbarOpen: boolean }> = ({ isNavbarOpen }) => {
-//   const { t } = useTranslation();
-//
-//   return (
-//     <CSSTransition
-//       mountOnEnter
-//       unmountOnExit
-//       in={isNavbarOpen}
-//       timeout={400}
-//       classNames={{
-//         enter: '',
-//         enterActive: classes.openingMobileNavbar,
-//         exit: '',
-//         exitActive: classes.closingMobileNavbar,
-//       }}
-//     >
-//       <div className={className}>
-//         <ul className={classes.listWrapper}>
-//           <li>
-//             <NavLink to="/home" activeClassName={classes.active}>
-//               {t('NavbarItemOne')}
-//             </NavLink>
-//           </li>
-//           <li>
-//             <NavLink to="/about" activeClassName={classes.active}>
-//               {t('NavbarItemTwo')}
-//             </NavLink>
-//           </li>
-//           <li>
-//             <NavLink to="/projects" activeClassName={classes.active}>
-//               {t('NavbarItemThree')}
-//             </NavLink>
-//           </li>
-//           <li>
-//             <NavLink to="/certificates" activeClassName={classes.active}>
-//               {t('NavbarItemFour')}
-//             </NavLink>
-//           </li>
-//           <li>
-//             <NavLink to="/media" activeClassName={classes.active}>
-//               Media
-//             </NavLink>
-//           </li>
-//           <li>
-//             <a className={classes.contactLink} href="mailto:bartoszformanowski@gmail.com">
-//               {t('NavbarItemFive')}
-//             </a>
-//           </li>
-//         </ul>
-//       </div>
-//     </CSSTransition>
-//   );
-// };
-//
-// export default MobileNavbarItems;
+import NavLink from '@components/Navbar/NavLink/NavLink';
+import en from '@components/locales/en';
+import pl from '@components/locales/pl';
+import {
+  ListWrapper,
+  ListItem,
+  Wrapper,
+} from '@components/Navbar/MobileNavbarItems/MoblieNavbarItems.styled';
+import { A } from '@components/Navbar/NavbarItems/NavbarItems.styled';
+
+const MobileNavbarItems: FC<{ isNavbarOpen: boolean }> = ({ isNavbarOpen }) => {
+  const router = useRouter();
+  const { locale } = router;
+  const t = locale === 'en' ? en : pl;
+
+  const modalVariants = {
+    open: {
+      opacity: 1,
+      y: 0,
+    },
+    closed: {
+      opacity: 0,
+      y: -500,
+    },
+  };
+
+  return (
+    <AnimatePresence>
+      {isNavbarOpen && (
+        <Wrapper variants={modalVariants} initial="closed" animate="open" exit="closed">
+          <ListWrapper>
+            <ListItem>
+              <NavLink url="/" linkLabel={t.NavbarItemOne} />
+            </ListItem>
+            <ListItem>
+              <NavLink url="/about" linkLabel={t.NavbarItemTwo} />
+            </ListItem>
+            <ListItem>
+              <NavLink url="/projects" linkLabel={t.NavbarItemThree} />
+            </ListItem>
+            <ListItem>
+              <NavLink url="/certificates" linkLabel={t.NavbarItemFour} />
+            </ListItem>
+            <ListItem>
+              <NavLink url="/media" linkLabel="Media" />
+            </ListItem>
+            <ListItem>
+              <A href="mailto:bartoszformanowski@gmail.com">{t.NavbarItemFive}</A>
+            </ListItem>
+          </ListWrapper>
+        </Wrapper>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export default MobileNavbarItems;

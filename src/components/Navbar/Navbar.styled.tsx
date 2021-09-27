@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-// import MobileNavbarItems from '@components/Navbar/MobileNavbarItems/MobileNavbarItems';
 import { getFontFamily, getMedia } from '@styles/utils';
 
 export const Nav = styled.nav<{ isTabletOrMobile: boolean }>`
@@ -9,23 +8,26 @@ export const Nav = styled.nav<{ isTabletOrMobile: boolean }>`
   align-items: center;
   justify-items: center;
 
-  ${({ isTabletOrMobile }) =>
-    isTabletOrMobile &&
-    css`
-      grid-template-rows: 1fr 4.2fr;
-      gap: 0;
-      grid-template-areas:
-        '. .'
-        'navbarItemsContainer navbarItemsContainer';
-    `}
-
   & a {
     text-decoration: none;
     color: black;
   }
 
   @media screen and (max-width: ${getMedia('navbar')}) {
+    grid-template-rows: 1fr 4.2fr;
     grid-template-columns: 1fr 1fr;
+    gap: 0;
+    grid-template-areas:
+      '. .'
+      'navbarItemsContainer navbarItemsContainer';
+  }
+`;
+
+export const LogoWrapper = styled.div`
+  margin-left: 2rem;
+
+  @media screen and (max-width: 320px) {
+    margin-left: 0;
   }
 `;
 
@@ -53,9 +55,3 @@ export const ChangeLangButton = styled.button`
 export const IconWrapper = styled.div`
   cursor: pointer;
 `;
-
-// export const NavbarItemsContainer = styled(MobileNavbarItems)`
-//   grid-area: navbarItemsContainer;
-//   width: 100%;
-//   height: 100%;
-// `;
