@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 import { useMediaQuery } from 'react-responsive';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { useEffect, useCallback } from 'react';
 import { GrClose } from 'react-icons/gr';
 import { IconContext } from 'react-icons';
 import { useRouter } from 'next/router';
@@ -36,9 +37,9 @@ const Navbar = () => {
     dispatch(navbarActions.openNavbar());
   };
 
-  const closeNavbarHandler = () => {
+  const closeNavbarHandler = useCallback(() => {
     dispatch(navbarActions.closeNavbar());
-  };
+  }, [dispatch]);
 
   const changeLanguageToPolishHandler = () => {
     changeLanguage('pl');
@@ -48,8 +49,16 @@ const Navbar = () => {
     changeLanguage('en');
   };
 
+  useEffect(() => {
+    router.events.on('routeChangeComplete', closeNavbarHandler);
+
+    return () => {
+      router.events.off('routeChangeComplete', closeNavbarHandler);
+    };
+  }, [closeNavbarHandler, router.events]);
+
   return (
-    <Nav isTabletOrMobile={isTabletOrMobile}>
+    <Nav isNavbarOpen={isNavbarOpen}>
       <LogoWrapper>
         <H1>
           <Link href="/">Fórmanowski</Link>

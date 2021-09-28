@@ -15,6 +15,11 @@ export const color = {
   mainBackground: 'hsl(0,55%,97%)',
   white: '#fff',
   black: '#000',
+  facebook: '#3B5998',
+  gitHub: '#333333',
+  linkedIn: '#0E76A8',
+  spotify: '#1DB954',
+  twitter: '#1DA1F2',
 } as const;
 
 export const animations = {

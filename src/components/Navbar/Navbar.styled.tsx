@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { getFontFamily, getMedia } from '@styles/utils';
 
-export const Nav = styled.nav<{ isTabletOrMobile: boolean }>`
+export const Nav = styled.nav<{ isNavbarOpen: boolean }>`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
@@ -14,7 +14,11 @@ export const Nav = styled.nav<{ isTabletOrMobile: boolean }>`
   }
 
   @media screen and (max-width: ${getMedia('navbar')}) {
-    grid-template-rows: 1fr 4.2fr;
+    ${({ isNavbarOpen }) =>
+      isNavbarOpen &&
+      css`
+        grid-template-rows: 1fr 3fr;
+      `}
     grid-template-columns: 1fr 1fr;
     gap: 0;
     grid-template-areas:

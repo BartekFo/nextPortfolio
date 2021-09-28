@@ -5,7 +5,7 @@ import en from '@components/locales/en';
 import pl from '@components/locales/pl';
 import styled from 'styled-components';
 import Layout from '@components/Layout/Layout';
-import { ReactChild, ReactFragment, ReactPortal } from 'react';
+import { Page } from '@root/@types/pageTypes';
 
 const Main = styled.main`
   margin-top: 180px;
@@ -18,19 +18,18 @@ const Main = styled.main`
   align-items: center;
 
   @media screen and (max-width: 1124px) {
-    margin-top: 0;
-    display: grid;
+    margin-top: 80px;
+    gap: 48px;
     grid-auto-columns: 1fr;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 0 0;
     grid-template-areas:
       'welcomeWrapper'
       'textWrapper';
   }
 `;
 
-const Home = () => {
+const Home: Page = () => {
   const router = useRouter();
   const { locale } = router;
   const t = locale === 'en' ? en : pl;
@@ -49,9 +48,7 @@ const Home = () => {
   );
 };
 
-Home.getLayout = function getLayout(
-  page: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined,
-) {
+Home.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
 

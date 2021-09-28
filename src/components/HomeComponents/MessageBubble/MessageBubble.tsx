@@ -11,7 +11,9 @@ import {
 const MessageBubble: FC<{
   isHavingLink: boolean;
   messageText: string;
+  // eslint-disable-next-line react/require-default-props
   linkDestination?: string;
+  // eslint-disable-next-line react/require-default-props
   linkText?: string;
 }> = (props) => {
   const { isHavingLink, messageText, linkDestination, linkText } = props;

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-import Card from '@components/utils/Card';
+import Card from '@components/Utils/Card';
 import { FilteredDataType } from '@root/@types/contentfulTypes';
 
 const ListWrapper = styled.ul`

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getAnimation } from '@styles/utils';
+import { getAnimation, getMedia } from '@styles/utils';
 
 export const TextWrapper = styled.div`
   grid-area: textWrapper;
@@ -18,6 +18,10 @@ export const TextWrapper = styled.div`
   color: #774f38;
   position: relative;
   box-shadow: 20px 20px #83af9b;
+
+  @media screen and (max-width: ${getMedia('navbar')}) {
+    width: 90%;
+  }
 
   &:after {
     transform: translatey(0px);

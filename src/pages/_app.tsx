@@ -1,9 +1,7 @@
-import { FunctionComponent, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
-import { NextPage } from 'next';
-import { AppProps } from 'next/app';
 
 import GlobalStyles from '@styles/GlobalStyles';
 import theme from '@styles/theme';

@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import en from '@components/locales/en';
 import pl from '@components/locales/pl';
 import { getMedia } from '@styles/utils';
-import { ReactChild, ReactFragment, ReactPortal } from 'react';
 import Layout from '@components/Layout/Layout';
+import { Page } from '@root/@types/pageTypes';
 
 const Main = styled.main`
   width: 80%;
@@ -37,7 +37,7 @@ const TextWrapper = styled.div`
   }
 `;
 
-const About = () => {
+const About: Page = () => {
   const router = useRouter();
   const { locale } = router;
   const t = locale === 'en' ? en : pl;
@@ -55,9 +55,7 @@ const About = () => {
   );
 };
 
-About.getLayout = function getLayout(
-  page: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined,
-) {
+About.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
 
