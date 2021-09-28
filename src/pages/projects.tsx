@@ -50,8 +50,8 @@ Projects.getLayout = function getLayout(page) {
 
 export async function getStaticProps() {
   const client = contentful.createClient({
-    space: 'a4g7t3i5v1dz',
-    accessToken: 'MOvjFoYHzeV-dFoGAG4flmanvGiavMAlQx4NdWGEQjA',
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   });
 
   const projects = await client.getEntries({
