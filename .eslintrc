@@ -19,7 +19,8 @@
     "react/jsx-one-expression-per-line": "off",
     "react/react-in-jsx-scope": "off",
     "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }],
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "react/prop-types": 0
   },
   "overrides": [
     {

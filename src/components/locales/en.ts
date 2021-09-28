@@ -17,6 +17,7 @@ export default {
   projectsSecondHeader:
     'You can checkout code for this portfolio on my GitHub page. Link is located in Media tab',
   certificatesLink: 'Read More',
+  projectsLink: 'See more',
   NavbarItemOne: 'Home',
   NavbarItemTwo: 'About',
   NavbarItemThree: 'Projects',

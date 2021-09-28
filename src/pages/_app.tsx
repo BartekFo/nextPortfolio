@@ -1,18 +1,17 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
+import { NextPage } from 'next';
 import { AppProps } from 'next/app';
 
 import GlobalStyles from '@styles/GlobalStyles';
 import theme from '@styles/theme';
 import store from '@store/index';
+import { Props } from '@root/@types/pageTypes';
 
-const App: FunctionComponent<AppProps> = (props) => {
-  const { Component, pageProps } = props;
-
-  // @ts-ignore
-  const getLayout = Component.getLayout || ((page) => page);
+const App = ({ Component, pageProps }: Props) => {
+  const getLayout = Component.getLayout || ((page: ReactNode) => page);
 
   return (
     <>
@@ -30,7 +29,7 @@ const App: FunctionComponent<AppProps> = (props) => {
       <ThemeProvider theme={theme}>
         <Provider store={store}>
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          {getLayout(<Component {...pageProps} />, pageProps)}
+          {getLayout(<Component {...pageProps} />)}
         </Provider>
         <GlobalStyles />
       </ThemeProvider>

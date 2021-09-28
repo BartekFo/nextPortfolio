@@ -16,7 +16,8 @@ export default {
   projectsFirstHeader: 'Niedługo będę dodawał tutaj projekty które stowrzyłem',
   projectsSecondHeader:
     'Możesz sprawdzić kod od tego portfolio na moim GitHubie. Link znajduje się zakładce Media',
-  certificatesLink: 'Przecztayj więcej',
+  certificatesLink: 'Przecztaj więcej',
+  projectsLink: 'Zobacz więcej',
   NavbarItemOne: 'Główna',
   NavbarItemTwo: 'O mnie',
   NavbarItemThree: 'Projekty',
