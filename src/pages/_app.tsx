@@ -14,9 +14,25 @@ const App = ({ Component, pageProps }: Props) => {
   return (
     <>
       <Head>
-        <title>App Name</title>
+        <title>Bartosz Fórmanowski - Developer</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <link rel="shortcut icon" href="/favicon.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+          name="description"
+          content="I'm Bartek, a developer who create React-based websites. I'm also interested in Node, Product Design. Contact. Dm me if u want to collaborate."
+        />
+        <meta property="og:title" content="Bartosz Fórmanowski - Developer" />
+
+        <meta
+          property="og:description"
+          content="I'm Bartek, a developer who create React-based websites. I'm also interested in Node, Product Design. Contact. Dm me if u want to collaborate."
+        />
+        <meta property="og:image" content="/ogImage.png" />
+        <meta property="og:url" content="https://bartoszformanowski.me/" />
+        <meta name="author" content="Bartosz Fórmanowski" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
