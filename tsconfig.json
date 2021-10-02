@@ -17,9 +17,7 @@
     "strictNullChecks": true,
     "sourceMap": true,
     "outDir": "dist",
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
