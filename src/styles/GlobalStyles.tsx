@@ -14,6 +14,8 @@ const GlobalStyles = createGlobalStyle`
     font-family: ${getFontFamily('roboto')};
     background-color: ${getColor('mainBackground')};
     text-align: center;
+    color: ${getColor('textColor')};
+    overflow-x: hidden;
   }
 `;
 

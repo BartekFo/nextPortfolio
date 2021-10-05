@@ -1,12 +1,11 @@
 import { ReactNode } from 'react';
-import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
 
 import GlobalStyles from '@styles/GlobalStyles';
-import theme from '@styles/theme';
 import store from '@store/index';
 import { Props } from '@root/@types/pageTypes';
+import DarkThemeProvider from '@components/DarkTheme/darkThemeProvider';
 
 const App = ({ Component, pageProps }: Props) => {
   const getLayout = Component.getLayout || ((page: ReactNode) => page);
@@ -40,13 +39,13 @@ const App = ({ Component, pageProps }: Props) => {
           rel="stylesheet"
         />
       </Head>
-      <ThemeProvider theme={theme}>
+      <DarkThemeProvider>
         <Provider store={store}>
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           {getLayout(<Component {...pageProps} />)}
         </Provider>
         <GlobalStyles />
-      </ThemeProvider>
+      </DarkThemeProvider>
     </>
   );
 };

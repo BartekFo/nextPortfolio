@@ -6,20 +6,17 @@ import Image from 'next/image';
 
 import en from '@components/locales/en';
 import pl from '@components/locales/pl';
-import { getMedia } from '@styles/utils';
+import { getBoxShadow, getColor, getMedia } from '@styles/utils';
 
 const Wrapper = styled.div`
-  background-color: white;
+  background-color: ${getColor('elementsColor')};
   border-radius: 20px;
   margin: 20px;
   width: 400px;
-  box-shadow: 3.38443px 55.8976px 80px rgba(97, 121, 139, 0.07),
-    1.71337px 28.2982px 34.875px rgba(97, 121, 139, 0.04725),
-    0.676885px 11.1795px 13px rgba(97, 121, 139, 0.035),
-    0.148069px 2.44552px 4.625px rgba(97, 121, 139, 0.02275);
+  box-shadow: ${getBoxShadow('default')};
 
   @media screen and (max-width: ${getMedia('navbar')}) {
-    width: 350px;
+    width: 320px;
   }
 `;
 
@@ -57,8 +54,8 @@ const TextContainer = styled.div`
 
   a {
     text-decoration: none;
-    color: black;
-    border: 1px solid black;
+    color: ${getColor('textColor')};
+    border: 1px solid ${getColor('textColor')};
     padding: 10px 30px;
     border-radius: 20px;
   }

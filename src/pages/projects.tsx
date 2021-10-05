@@ -8,18 +8,24 @@ import filterContentfulData from '@utils/filterContentfulData';
 import CardList from '@components/Utils/CardList';
 import { FilteredDataType } from '@root/@types/contentfulTypes';
 import { Page } from '@root/@types/pageTypes';
+import { getMedia } from '@styles/utils';
 
 const contentful = require('contentful');
 
 const Main = styled.main`
   display: flex;
   justify-content: center;
+  max-width: 1440px;
   align-items: center;
   flex-direction: column;
-  margin: 100px 40px 0;
+  margin: 100px auto 0;
 
   h1 {
     margin-bottom: 50px;
+
+    @media (max-width: ${getMedia('navbar')}) {
+      padding-inline: 20px;
+    }
   }
 
   img {

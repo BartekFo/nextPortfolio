@@ -2,7 +2,7 @@ import { Keyframes } from 'styled-components';
 
 import ThemeType from '@root/@types/ThemeType';
 
-import { animations, color, fontFamily, fontWeight, medias } from './theme';
+import { animations, color, fontFamily, fontWeight, medias, boxShadow } from './lightTheme';
 
 type StyledComponentsTheme = { theme: ThemeType };
 export const getColor =
@@ -29,3 +29,8 @@ export const getAnimation =
   (animationName: keyof typeof animations) =>
   ({ theme }: StyledComponentsTheme): Keyframes =>
     theme.animations[animationName];
+
+export const getBoxShadow =
+  (boxShadowName: keyof typeof boxShadow) =>
+  ({ theme }: StyledComponentsTheme): string =>
+    theme.boxShadow[boxShadowName];

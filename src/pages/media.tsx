@@ -10,9 +10,10 @@ import { Page } from '@root/@types/pageTypes';
 const Main = styled.main`
   display: flex;
   flex-wrap: wrap;
+  max-width: 1440px;
   align-items: center;
   justify-content: space-around;
-  margin: 100px 200px;
+  margin: 100px auto;
 `;
 
 const Media: Page = () => {

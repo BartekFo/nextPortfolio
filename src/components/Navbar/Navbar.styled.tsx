@@ -1,16 +1,17 @@
 import styled, { css } from 'styled-components';
 
-import { getFontFamily, getMedia } from '@styles/utils';
+import { getColor, getFontFamily, getMedia } from '@styles/utils';
 
 export const Nav = styled.nav<{ isNavbarOpen: boolean }>`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-items: center;
+  max-width: 1440px;
+  margin: auto;
 
   & a {
     text-decoration: none;
-    color: black;
+    color: ${getColor('textColor')};
   }
 
   @media screen and (max-width: ${getMedia('navbar')}) {
@@ -19,19 +20,12 @@ export const Nav = styled.nav<{ isNavbarOpen: boolean }>`
       css`
         grid-template-rows: 1fr 3fr;
       `}
-    grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1.7fr 0.3fr;
     gap: 0;
     grid-template-areas:
       '. .'
       'navbarItemsContainer navbarItemsContainer';
-  }
-`;
-
-export const LogoWrapper = styled.div`
-  margin-left: 2rem;
-
-  @media screen and (max-width: 320px) {
-    margin-left: 0;
   }
 `;
 
@@ -58,4 +52,11 @@ export const ChangeLangButton = styled.button`
 
 export const IconWrapper = styled.div`
   cursor: pointer;
+  justify-self: start;
+  margin-bottom: 1rem;
+  & svg,
+  path {
+    fill: ${getColor('textColor')};
+    stroke: ${getColor('textColor')};
+  }
 `;

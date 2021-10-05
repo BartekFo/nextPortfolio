@@ -2,7 +2,7 @@ import BlackHand from '@assets/blackHand.svg';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
-import { getAnimation, getFontFamily, getFontWeight } from '@styles/utils';
+import { getAnimation, getColor, getFontFamily, getFontWeight } from '@styles/utils';
 import en from '@components/locales/en';
 import pl from '@components/locales/pl';
 
@@ -32,6 +32,7 @@ const StyledHand = styled(BlackHand)`
   animation: ${getAnimation('waveAnimation')} 2.5s infinite;
   transform-origin: 70% 70%;
   display: inline-block;
+  fill: ${getColor('textColor')};
 `;
 
 const WelcomeHand = () => {

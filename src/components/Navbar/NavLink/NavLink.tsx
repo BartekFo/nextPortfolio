@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { getFontWeight } from '@styles/utils';
+import { getColor, getFontWeight } from '@styles/utils';
 
 const PageLink = styled.a<{ url: string; isActive: boolean }>`
   display: flex;
@@ -13,7 +13,7 @@ const PageLink = styled.a<{ url: string; isActive: boolean }>`
   width: 120%;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: ${getColor('navbarLinkHover')};
     height: 80%;
     border-radius: 22px;
     width: 120%;
@@ -22,11 +22,11 @@ const PageLink = styled.a<{ url: string; isActive: boolean }>`
   ${({ isActive }) =>
     isActive &&
     css`
-      background-color: white;
+      background-color: ${getColor('elementsColor')};
       font-weight: ${getFontWeight('bold')};
 
       &:hover {
-        background-color: white;
+        background-color: ${getColor('elementsColor')};
       }
     `}
 `;

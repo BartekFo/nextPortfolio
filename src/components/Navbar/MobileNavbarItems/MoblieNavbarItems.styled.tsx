@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { getColor } from '@styles/utils';
 
 export const Wrapper = styled(motion.div)`
   grid-area: navbarItemsContainer;
@@ -16,7 +17,7 @@ export const ListWrapper = styled(motion.ul)`
   align-items: center;
   justify-items: center;
   list-style: none;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: ${getColor('navbarLinksBackground')};
   border-radius: 28px;
   width: 90%;
   margin: auto auto 30px auto;

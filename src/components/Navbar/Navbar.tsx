@@ -13,14 +13,7 @@ import { navbarActions } from '@store/navbar';
 import PolandFlag from '@assets/Poland.png';
 import UKFlag from '@assets/UK.png';
 import NavbarItems from '@components/Navbar/NavbarItems/NavbarItems';
-import {
-  Nav,
-  H1,
-  P,
-  ChangeLangButton,
-  IconWrapper,
-  LogoWrapper,
-} from '@components/Navbar/Navbar.styled';
+import { Nav, H1, P, ChangeLangButton, IconWrapper } from '@components/Navbar/Navbar.styled';
 import MobileNavbarItems from '@components/Navbar/MobileNavbarItems/MobileNavbarItems';
 
 const Navbar = () => {
@@ -59,7 +52,7 @@ const Navbar = () => {
 
   return (
     <Nav isNavbarOpen={isNavbarOpen}>
-      <LogoWrapper>
+      <div>
         <H1>
           <Link href="/">Fórmanowski</Link>
         </H1>
@@ -71,12 +64,12 @@ const Navbar = () => {
             <Image src={UKFlag} alt="United Kingdom Flag" layout="fill" />
           </ChangeLangButton>
         </P>
-      </LogoWrapper>
+      </div>
 
       {!isTabletOrMobile && <NavbarItems />}
       {isTabletOrMobile && (
         <>
-          <IconContext.Provider value={{ color: 'black', size: '2em' }}>
+          <IconContext.Provider value={{ size: '2em' }}>
             <IconWrapper>
               {!isNavbarOpen ? (
                 <GiHamburgerMenu onClick={openNavbarHandler} />

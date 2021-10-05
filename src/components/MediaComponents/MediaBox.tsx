@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { getColor } from '@styles/utils';
-import { color } from '@styles/theme';
+import { color } from '@styles/lightTheme';
 
 const MediaBox = styled.div<{ colorName: keyof typeof color }>`
   color: white;

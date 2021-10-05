@@ -9,6 +9,7 @@ import { Page } from '@root/@types/pageTypes';
 
 const Main = styled.main`
   width: 80%;
+  max-width: 1440px;
   margin: 100px auto;
   text-align: left;
 

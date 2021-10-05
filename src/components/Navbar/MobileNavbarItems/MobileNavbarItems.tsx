@@ -10,12 +10,15 @@ import {
   ListItem,
   Wrapper,
 } from '@components/Navbar/MobileNavbarItems/MoblieNavbarItems.styled';
-import { A } from '@components/Navbar/NavbarItems/NavbarItems.styled';
+import { A, Button } from '@components/Navbar/NavbarItems/NavbarItems.styled';
+import useDarkMode from 'use-dark-mode';
+import { FaMoon, FaRegMoon } from 'react-icons/fa';
 
 const MobileNavbarItems: FC<{ isNavbarOpen: boolean }> = ({ isNavbarOpen }) => {
   const router = useRouter();
   const { locale } = router;
   const t = locale === 'en' ? en : pl;
+  const darkMode = useDarkMode(false);
 
   const modalVariants = {
     open: {
@@ -48,6 +51,12 @@ const MobileNavbarItems: FC<{ isNavbarOpen: boolean }> = ({ isNavbarOpen }) => {
             </ListItem>
             <ListItem>
               <A href="mailto:bartoszformanowski@gmail.com">{t.NavbarItemFive}</A>
+            </ListItem>
+            <ListItem>
+              <Button type="button" onClick={darkMode.toggle}>
+                {darkMode.value ? <FaMoon /> : <FaRegMoon />}
+                Dark Mode
+              </Button>
             </ListItem>
           </ListWrapper>
         </Wrapper>

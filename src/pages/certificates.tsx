@@ -16,11 +16,8 @@ const Main = styled.main`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 100px 40px 0;
-
-  h1 {
-    margin-bottom: 50px;
-  }
+  max-width: 1440px;
+  margin: 100px auto 0;
 
   img {
     margin-top: 50px;
@@ -31,18 +28,11 @@ const Main = styled.main`
 
 const Certificates: Page<{
   certificatesArray: FilteredDataType[];
-}> = ({ certificatesArray }) => {
-  const router = useRouter();
-  const { locale } = router;
-  const t = locale === 'en' ? en : pl;
-
-  return (
-    <Main>
-      <h1>{t.projectsSecondHeader}</h1>
-      <CardList data={certificatesArray} />
-    </Main>
-  );
-};
+}> = ({ certificatesArray }) => (
+  <Main>
+    <CardList data={certificatesArray} />
+  </Main>
+);
 
 Certificates.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
