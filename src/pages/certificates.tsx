@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import { useRouter } from 'next/router';
 
-import en from '@components/locales/en';
-import pl from '@components/locales/pl';
 import Layout from '@components/Layout/Layout';
 import filterContentfulData from '@utils/filterContentfulData';
 import CardList from '@components/Utils/CardList';
