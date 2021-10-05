@@ -29,10 +29,10 @@ const ImageContainer = styled.div`
   padding-top: 56.25%;
   position: relative;
   border-radius: 20px 20px 0 0;
-  background-color: rgb(236 229 206);
 
   img {
     border-radius: 20px 20px 0 0;
+    object-fit: cover;
   }
 `;
 
