@@ -70,6 +70,7 @@ export async function getStaticProps() {
     props: {
       projectsArray,
     },
+    revalidate: 86400,
   };
 }
 

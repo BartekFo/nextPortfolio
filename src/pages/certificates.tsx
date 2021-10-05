@@ -51,6 +51,7 @@ export async function getStaticProps() {
     props: {
       certificatesArray,
     },
+    revalidate: 86400,
   };
 }
 
