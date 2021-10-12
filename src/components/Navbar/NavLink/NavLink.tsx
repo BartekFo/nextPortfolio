@@ -17,10 +17,6 @@ const PageLink = styled.a<{ url: string; isActive: boolean }>`
   margin: auto;
   border-radius: 22px;
 
-  &:hover {
-    background-color: ${getColor('navbarLinkHover')};
-  }
-
   ${({ isActive }) =>
     isActive &&
     css`
@@ -30,8 +26,12 @@ const PageLink = styled.a<{ url: string; isActive: boolean }>`
     `};
 
   @media screen and (min-width: ${getMedia('navbar')}) {
-    width: 20%;
+    width: 35%;
     padding: 1rem;
+
+    &:hover {
+      background-color: ${getColor('navbarLinkHover')};
+    }
   }
 `;
 

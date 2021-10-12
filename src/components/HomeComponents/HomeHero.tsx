@@ -1,14 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 
 import WelcomeHand from '@components/HomeComponents/WelcomeHand/WelcomeHand';
 import MessageBubble from '@components/HomeComponents/MessageBubble/MessageBubble';
-import { useRouter } from 'next/router';
 import en from '@components/locales/en';
 import pl from '@components/locales/pl';
+import { getMedia } from '@styles/utils';
 
 const Main = styled.main`
   margin: 180px 2rem 0;
+
+  @media screen and (max-width: ${getMedia('navbar')}) {
+    margin: 0;
+  }
 `;
 
 const CenterWrapper = styled.div`
@@ -23,7 +28,6 @@ const CenterWrapper = styled.div`
   align-items: center;
 
   @media screen and (max-width: 1124px) {
-    margin-top: 50px;
     justify-items: center;
     gap: 48px;
     grid-auto-columns: 1fr;

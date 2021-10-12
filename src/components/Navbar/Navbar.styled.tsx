@@ -5,7 +5,10 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-inline: 2rem;
+
+  @media screen and (min-width: ${getMedia('navbar')}) {
+    margin-inline: 2rem;
+  }
 `;
 
 export const NavCenter = styled.div`

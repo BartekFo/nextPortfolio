@@ -6,7 +6,10 @@ export const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
-  margin-right: 2rem;
+
+  @media screen and (min-width: ${getMedia('navbar')}) {
+    margin-right: 2rem;
+  }
 `;
 
 export const H1 = styled.h1`
