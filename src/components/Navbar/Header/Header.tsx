@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconContext } from 'react-icons';
