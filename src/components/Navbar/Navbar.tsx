@@ -1,12 +1,12 @@
-import { useSelector } from 'react-redux';
+import { useContext } from 'react';
 
-import { RootState } from '@root/store';
 import NavbarItems from '@components/Navbar/NavbarItems/NavbarItems';
 import { Nav, NavCenter } from '@components/Navbar/Navbar.styled';
 import Header from '@components/Navbar/Header/Header';
+import { NavbarContext } from '@contextProviders/navbar-context';
 
 const Navbar = () => {
-  const isNavbarOpen = useSelector((state: RootState) => state.navbar.isNavbarOpen);
+  const { isNavbarOpen } = useContext(NavbarContext);
 
   return (
     <Nav>

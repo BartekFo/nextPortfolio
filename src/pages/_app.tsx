@@ -1,11 +1,10 @@
 import { ReactNode } from 'react';
 import Head from 'next/head';
-import { Provider } from 'react-redux';
 
 import GlobalStyles from '@styles/GlobalStyles';
-import store from '@store/index';
 import { Props } from '@root/@types/pageTypes';
 import DarkThemeProvider from '@components/DarkTheme/darkThemeProvider';
+import NavbarProvider from '@contextProviders/navbar-context';
 
 const App = ({ Component, pageProps }: Props) => {
   const getLayout = Component.getLayout || ((page: ReactNode) => page);
@@ -40,10 +39,10 @@ const App = ({ Component, pageProps }: Props) => {
         />
       </Head>
       <DarkThemeProvider>
-        <Provider store={store}>
+        <NavbarProvider>
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           {getLayout(<Component {...pageProps} />)}
-        </Provider>
+        </NavbarProvider>
         <GlobalStyles />
       </DarkThemeProvider>
     </>

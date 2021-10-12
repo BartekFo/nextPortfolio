@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconContext } from 'react-icons';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GrClose } from 'react-icons/gr';
-import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 
 import {
@@ -16,17 +15,11 @@ import {
 } from '@components/Navbar/Header/Header.styled';
 import PolandFlag from '@assets/Poland.png';
 import UKFlag from '@assets/UK.png';
-import { navbarActions } from '@store/navbar';
-import { RootState } from '@root/store';
+import { NavbarContext } from '@contextProviders/navbar-context';
 
 const Header = () => {
-  const dispatch = useDispatch();
   const router = useRouter();
-  const isNavbarOpen = useSelector((state: RootState) => state.navbar.isNavbarOpen);
-
-  const openNavbarHandler = () => {
-    dispatch(navbarActions.openNavbar());
-  };
+  const { openNavbar, closeNavbar, isNavbarOpen } = useContext(NavbarContext);
 
   const changeLanguage = (locale: string) => {
     router.push(router.pathname, router.asPath, { locale });
@@ -40,17 +33,13 @@ const Header = () => {
     changeLanguage('en');
   };
 
-  const closeNavbarHandler = useCallback(() => {
-    dispatch(navbarActions.closeNavbar());
-  }, [dispatch]);
-
   useEffect(() => {
-    router.events.on('routeChangeComplete', closeNavbarHandler);
+    router.events.on('routeChangeComplete', closeNavbar);
 
     return () => {
-      router.events.off('routeChangeComplete', closeNavbarHandler);
+      router.events.off('routeChangeComplete', closeNavbar);
     };
-  }, [closeNavbarHandler, router.events]);
+  }, [closeNavbar, router.events]);
 
   return (
     <HeaderWrapper>
@@ -70,9 +59,9 @@ const Header = () => {
       <IconContext.Provider value={{ size: '2em' }}>
         <IconWrapper>
           {!isNavbarOpen ? (
-            <GiHamburgerMenu onClick={openNavbarHandler} />
+            <GiHamburgerMenu onClick={openNavbar} />
           ) : (
-            <GrClose onClick={closeNavbarHandler} />
+            <GrClose onClick={closeNavbar} />
           )}
         </IconWrapper>
       </IconContext.Provider>
