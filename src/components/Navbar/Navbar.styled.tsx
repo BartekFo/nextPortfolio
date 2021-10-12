@@ -1,62 +1,21 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { getMedia } from '@styles/utils';
 
-import { getColor, getFontFamily, getMedia } from '@styles/utils';
-
-export const Nav = styled.nav<{ isNavbarOpen: boolean }>`
+export const Nav = styled.nav`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  margin-inline: 2rem;
+`;
+
+export const NavCenter = styled.div`
   max-width: 1440px;
   margin: auto;
+  width: 90vw;
 
-  & a {
-    text-decoration: none;
-    color: ${getColor('textColor')};
-  }
-
-  @media screen and (max-width: ${getMedia('navbar')}) {
-    ${({ isNavbarOpen }) =>
-      isNavbarOpen &&
-      css`
-        grid-template-rows: 1fr 3fr;
-      `}
-    display: grid;
-    grid-template-columns: 1.7fr 0.3fr;
-    gap: 0;
-    grid-template-areas:
-      '. .'
-      'navbarItemsContainer navbarItemsContainer';
-  }
-`;
-
-export const H1 = styled.h1`
-  font-family: ${getFontFamily('pacifico')};
-  font-size: 3rem;
-  font-weight: normal;
-`;
-
-export const P = styled.p`
-  font-size: 1.5rem;
-`;
-
-export const ChangeLangButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  position: relative;
-  width: 30px;
-  height: auto;
-  padding-top: 30px;
-`;
-
-export const IconWrapper = styled.div`
-  cursor: pointer;
-  justify-self: start;
-  margin-bottom: 1rem;
-  & svg,
-  path {
-    fill: ${getColor('textColor')};
-    stroke: ${getColor('textColor')};
+  @media screen and (min-width: ${getMedia('navbar')}) {
+    display: flex;
+    align-items: center;
+    width: 100vw;
   }
 `;

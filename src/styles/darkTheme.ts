@@ -25,7 +25,7 @@ export const color = {
   twitter: 'hsl(203, 89%, 53%)',
   messageBubbleText: 'hsl(0, 0%, 100%)',
   messageBubbleBackground: 'hsl(209, 23%, 22%)',
-  messageBubbleBoxShadow: 'hsl(0, 0%, 97%)',
+  messageBubbleBoxShadow: 'hsla(0, 0%, 0%, 0.2)',
   messageBubbleBorder: 'hsl(209, 23%, 22%)',
 } as const;
 
@@ -75,6 +75,7 @@ export const animations = {
       transform: translatey(0px);
     }
 `,
+  defaultTransition: '0.3s ease-in-out all',
 };
 
 export const medias = {

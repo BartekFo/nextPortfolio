@@ -73,6 +73,7 @@ export const animations = {
       transform: translatey(0px);
     }
 `,
+  defaultTransition: '0.3s ease-in-out all',
 };
 
 export const medias = {

@@ -2,33 +2,37 @@ import { FC } from 'react';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { getColor, getFontWeight } from '@styles/utils';
+
+import { getColor, getFontWeight, getMedia } from '@styles/utils';
 
 const PageLink = styled.a<{ url: string; isActive: boolean }>`
   display: flex;
+  user-select: none;
   justify-content: center;
   align-items: center;
-  height: 80%;
+  padding-block: 1rem;
+  text-decoration: none;
+  color: ${getColor('textColor')};
+  width: 80%;
+  margin: auto;
   border-radius: 22px;
-  width: 120%;
 
   &:hover {
     background-color: ${getColor('navbarLinkHover')};
-    height: 80%;
-    border-radius: 22px;
-    width: 120%;
   }
 
   ${({ isActive }) =>
     isActive &&
     css`
-      background-color: ${getColor('elementsColor')};
       font-weight: ${getFontWeight('bold')};
+      font-size: 1.2rem;
+      transition: 0.3s ease-in-out font-size;
+    `};
 
-      &:hover {
-        background-color: ${getColor('elementsColor')};
-      }
-    `}
+  @media screen and (min-width: ${getMedia('navbar')}) {
+    width: 20%;
+    padding: 1rem;
+  }
 `;
 
 const NavLink: FC<{ url: string; linkLabel: string }> = ({ url, linkLabel }) => {
