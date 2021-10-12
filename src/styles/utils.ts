@@ -27,7 +27,7 @@ export const getMedia =
 
 export const getAnimation =
   (animationName: keyof typeof animations) =>
-  ({ theme }: StyledComponentsTheme): Keyframes =>
+  ({ theme }: StyledComponentsTheme) =>
     theme.animations[animationName];
 
 export const getBoxShadow =
