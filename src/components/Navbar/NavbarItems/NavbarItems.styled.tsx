@@ -1,22 +1,26 @@
 import styled from 'styled-components';
 import { getAnimation, getColor, getMedia } from '@styles/utils';
 
-export const Wrapper = styled.div<{ isNavbarOpen: boolean }>`
+export const Wrapper = styled.div`
   overflow: hidden;
-  background-color: ${getColor('navbarLinksBackground')};
-  display: flex;
-  flex-direction: column;
   transition: ${getAnimation('defaultTransition')};
-  height: ${({ isNavbarOpen }) => (isNavbarOpen ? '25rem' : '0')};
-  border-radius: 22px;
+
+  div {
+    background-color: ${getColor('navbarLinksBackground')};
+    display: flex;
+    flex-direction: column;
+    border-radius: 22px;
+  }
 
   @media screen and (min-width: ${getMedia('navbar')}) {
-    flex-direction: row;
-    align-items: center;
-    height: auto;
-    width: 100%;
-    background: none;
-    border-radius: 0;
+    div {
+      flex-direction: row;
+      align-items: center;
+      height: auto;
+      width: 100%;
+      background: none;
+      border-radius: 0;
+    }
   }
 `;
 
