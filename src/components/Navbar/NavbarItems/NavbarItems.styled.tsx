@@ -13,11 +13,11 @@ export const Wrapper = styled.div`
   }
 
   @media screen and (min-width: ${getMedia('navbar')}) {
+    height: auto !important;
+    width: 100%;
     div {
       flex-direction: row;
       align-items: center;
-      height: auto;
-      width: 100%;
       background: none;
       border-radius: 0;
     }
