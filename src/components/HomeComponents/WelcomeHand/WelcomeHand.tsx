@@ -25,6 +25,7 @@ const WelcomeText = styled.p`
   text-decoration: underline;
   margin-bottom: 55px;
   text-align: center;
+  padding-inline: 1.75rem;
 `;
 
 // @ts-ignore
