@@ -48,6 +48,7 @@ export const TextWrapper = styled.div`
 export const AboutInfo = styled.p`
   font-size: 1.5rem;
   font-weight: 500;
+  color: ${getColor('messageBubbleText')};
   margin-bottom: 50px;
 `;
 
