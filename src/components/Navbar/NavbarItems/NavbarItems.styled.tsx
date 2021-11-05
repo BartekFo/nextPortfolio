@@ -1,13 +1,16 @@
 import styled from 'styled-components';
+import Switch from 'react-switch';
+import { FaSun, FaMoon } from 'react-icons/fa';
 import { getAnimation, getColor, getMedia } from '@styles/utils';
 
 export const Wrapper = styled.div`
   overflow: hidden;
   transition: ${getAnimation('defaultTransition')};
 
-  div {
+  & > div {
     background-color: ${getColor('navbarLinksBackground')};
     display: flex;
+    align-items: center;
     flex-direction: column;
     border-radius: 22px;
   }
@@ -42,27 +45,22 @@ export const A = styled.a`
   }
 `;
 
-export const Button = styled.button`
-  background: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  outline: none;
-  border: none;
+export const StyledSwitch = styled(Switch)`
   cursor: pointer;
-  width: 80%;
-  margin: auto;
-  padding: 1rem;
-  color: ${getColor('textColor')};
-  font-size: 1rem;
-  letter-spacing: 0.05rem;
+  margin-inline: 2rem 5rem;
 
-  svg {
-    height: 20%;
-    transform: rotate(-20deg);
+  @media screen and (max-width: ${getMedia('navbar')}) {
+    width: max-content;
+    margin-inline: 0;
+    margin-block: 0.5rem;
+    height: 100%;
   }
+`;
 
-  span {
-    margin-left: 0.5rem;
-  }
+export const StyledMoon = styled(FaMoon)`
+  margin: 0.375rem;
+`;
+
+export const StyledSun = styled(FaSun)`
+  margin: 0.375rem 0.25rem;
 `;

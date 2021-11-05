@@ -1,6 +1,7 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+
 import { IconContext } from 'react-icons';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GrClose } from 'react-icons/gr';
@@ -48,10 +49,18 @@ const Header = () => {
           <Link href="/">Fórmanowski</Link>
         </H1>
         <P>
-          <ChangeLangButton type="button" onClick={changeLanguageToPolishHandler}>
+          <ChangeLangButton
+            isActive={router.locale === 'pl'}
+            type="button"
+            onClick={changeLanguageToPolishHandler}
+          >
             <Image src={PolandFlag} alt="Poland Flag" layout="fill" />
           </ChangeLangButton>
-          <ChangeLangButton type="button" onClick={changeLanguageToEnglishHandler}>
+          <ChangeLangButton
+            isActive={router.locale === 'en'}
+            type="button"
+            onClick={changeLanguageToEnglishHandler}
+          >
             <Image src={UKFlag} alt="United Kingdom Flag" layout="fill" />
           </ChangeLangButton>
         </P>

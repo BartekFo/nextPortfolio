@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { getColor, getFontFamily, getMedia } from '@styles/utils';
 
 export const HeaderWrapper = styled.div`
@@ -26,7 +26,7 @@ export const P = styled.p`
   font-size: 1.5rem;
 `;
 
-export const ChangeLangButton = styled.button`
+export const ChangeLangButton = styled.button<{ isActive: boolean }>`
   background: none;
   border: none;
   cursor: pointer;
@@ -35,6 +35,14 @@ export const ChangeLangButton = styled.button`
   width: 30px;
   height: auto;
   padding-top: 30px;
+  margin-inline: 0.5rem;
+  transition: all 0.2s ease-in-out;
+
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      transform: scale(1.2);
+    `}
 `;
 
 export const IconWrapper = styled.div`
