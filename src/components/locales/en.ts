@@ -4,7 +4,7 @@ export default {
   welcomeMessageBubbleLongText:
     "I create React-based websites. I live in a small town between Poznań and Wrocław. I'm also interested in Node and Product Desing",
   welcomeMessageBubbleLink: 'Keep Reading',
-  aboutHeader: 'About me',
+  aboutHeader: 'ABOUT ME',
   aboutFirstText:
     'Programming became my passion 2 years ago when I was in Vocational Technical High School for Computer Science here in Poland.',
   aboutSecondText:

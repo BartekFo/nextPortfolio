@@ -1,6 +1,4 @@
-import { useMemo } from 'react';
 import styled from 'styled-components';
-import Typical from 'react-typical';
 import { useRouter } from 'next/router';
 
 import { getAnimation, getColor, getFontFamily, getFontWeight } from '@styles/utils';
@@ -23,7 +21,7 @@ const Logo = styled.h1`
   font-weight: ${getFontWeight('regular')};
 `;
 
-const WelcomeText = styled(Typical)`
+const WelcomeText = styled.p`
   font-size: 1.5rem;
   text-decoration: underline;
   margin-bottom: 55px;
@@ -44,14 +42,10 @@ const WelcomeHand = () => {
   const { locale } = router;
   const t = locale === 'en' ? en : pl;
 
-  const HeaderTitleTypeAnimation = useMemo(() => {
-    return <WelcomeText steps={t.welcomeMessage} loop={30} />;
-  }, [t.welcomeMessage]);
-
   return (
     <Wrapper>
       <Logo>{t.welcomeMessageBigText}</Logo>
-      {HeaderTitleTypeAnimation}
+      <WelcomeText>{t.welcomeMessage}</WelcomeText>
       <StyledHand />
     </Wrapper>
   );

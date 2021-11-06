@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
   
   body {
     font-size: 16px;
-    font-family: ${getFontFamily('roboto')};
+    font-family: ${getFontFamily('montserrat')};
     background-color: ${getColor('mainBackground')};
     text-align: center;
     color: ${getColor('textColor')};

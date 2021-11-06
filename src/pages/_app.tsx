@@ -31,12 +31,6 @@ const App = ({ Component, pageProps }: Props) => {
         <meta name="author" content="Bartosz Fórmanowski" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <DarkThemeProvider>
         <NavbarProvider>

@@ -1,7 +1,7 @@
 import { DefaultTheme, keyframes } from 'styled-components';
 
 export const fontFamily = {
-  roboto: "'Roboto', sans-serif",
+  montserrat: "'Montserrat', sans-serif",
   pacifico: "'Pacifico', cursive",
 } as const;
 

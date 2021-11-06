@@ -4,7 +4,7 @@ export default {
   welcomeMessageBubbleLongText:
     'Tworzę strony oparte na Reakcie. Żyje w małym miasteczku położonym pomiędzy Poznaniem i Wrocławiem. Jestem również zainteresowany Nodem i Product Designem',
   welcomeMessageBubbleLink: 'Czytaj Dalej',
-  aboutHeader: 'O mnie',
+  aboutHeader: 'O MNIE',
   aboutFirstText:
     'Programowanie stało się moją pasją 2 lata temu gdy byłem w Technikum informatyczynm w Polsce.',
   aboutSecondText:
