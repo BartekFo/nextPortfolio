@@ -2,7 +2,8 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import Image from 'next/image';
-import { FaReact, SiStyledComponents, SiNextDotJs } from 'react-icons/all';
+import { FaReact } from 'react-icons/fa';
+import { SiStyledComponents, SiNextDotJs } from 'react-icons/si';
 
 import en from '@components/locales/en';
 import pl from '@components/locales/pl';
