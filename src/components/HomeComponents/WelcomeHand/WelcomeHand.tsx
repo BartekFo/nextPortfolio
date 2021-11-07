@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 import { getAnimation, getColor, getFontFamily, getFontWeight } from '@styles/utils';
 import BlackHand from '@assets/blackHand.svg';
 import en from '@components/locales/en';
 import pl from '@components/locales/pl';
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   grid-area: welcomeWrapper;
   display: flex;
   width: 100%;
@@ -43,7 +44,16 @@ const WelcomeHand = () => {
   const t = locale === 'en' ? en : pl;
 
   return (
-    <Wrapper>
+    <Wrapper
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        type: 'spring',
+        stiffness: 300,
+        damping: 30,
+        duration: 0.5,
+      }}
+    >
       <Logo>{t.welcomeMessageBigText}</Logo>
       <WelcomeText>{t.welcomeMessage}</WelcomeText>
       <StyledHand />

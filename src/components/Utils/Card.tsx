@@ -3,12 +3,13 @@ import { BsBoxArrowInUpRight } from 'react-icons/bs';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import en from '@components/locales/en';
 import pl from '@components/locales/pl';
 import { getBoxShadow, getColor, getMedia } from '@styles/utils';
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   background-color: ${getColor('elementsColor')};
   border-radius: 20px;
   margin: 20px;
@@ -67,7 +68,11 @@ const Card: React.FC<{ name: string; image: string; url: string }> = ({ name, im
   const t = locale === 'en' ? en : pl;
 
   return (
-    <Wrapper>
+    <Wrapper
+      initial={{ scale: 0.5, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <ImageContainer>
         <Image src={image} alt="certificate" layout="fill" />
       </ImageContainer>

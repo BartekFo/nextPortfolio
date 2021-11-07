@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { FaReact } from 'react-icons/fa';
 import { SiStyledComponents, SiNextDotJs } from 'react-icons/si';
+import { motion } from 'framer-motion';
 
 import en from '@components/locales/en';
 import pl from '@components/locales/pl';
@@ -22,7 +23,7 @@ const Main = styled.main`
   }
 `;
 
-const AboutTitle = styled.h1`
+const AboutTitle = styled(motion.h1)`
   font-size: 2.25rem;
   font-weight: bold;
   text-align: center;
@@ -41,7 +42,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled(motion.div)`
   background-color: ${getColor('mainBackground')};
   text-align: center;
   box-shadow: 0 4px 6px rgb(0 0 0 / 30%);
@@ -63,7 +64,7 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const Card = styled.div`
+const Card = styled(motion.div)`
   border: 1px solid rgb(0 0 0 / 13%);
   max-width: 60ch;
 `;
@@ -95,15 +96,29 @@ const AboutHero = () => {
 
   return (
     <Main>
-      <AboutTitle>{t.aboutHeader}</AboutTitle>
+      <AboutTitle
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        {t.aboutHeader}
+      </AboutTitle>
       <Wrapper>
-        <ImageWrapper>
+        <ImageWrapper
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <Image src={FaceImage} layout="responsive" width={300} height={300} />
           <FaReact />
           <SiStyledComponents />
           <SiNextDotJs />
         </ImageWrapper>
-        <Card>
+        <Card
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <AppleBar>
             <svg height="10" width="10">
               <circle cx="5" cy="5" r="5" strokeWidth="3" fill="red" />

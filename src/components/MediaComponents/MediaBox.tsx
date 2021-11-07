@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { getColor } from '@styles/utils';
 import { color } from '@styles/lightTheme';
+import { motion } from 'framer-motion';
 
-const MediaBox = styled.div<{ colorName: keyof typeof color }>`
+const MediaBox = styled(motion.div)<{ colorName: keyof typeof color }>`
   color: white;
   background-color: ${({ colorName }) => getColor(colorName)};
   border-radius: 58px;

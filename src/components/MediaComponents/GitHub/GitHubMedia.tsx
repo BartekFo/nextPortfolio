@@ -4,7 +4,12 @@ import MediaBox from '@components/MediaComponents/MediaBox';
 const GitHubMedia = () => {
   return (
     <a href="https://github.com/BartekFo">
-      <MediaBox colorName="gitHub">
+      <MediaBox
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        colorName="gitHub"
+      >
         <FaGithub />
       </MediaBox>
     </a>

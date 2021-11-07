@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 import en from '@components/locales/en';
 import pl from '@components/locales/pl';
@@ -20,18 +21,18 @@ const Main = styled.main`
   flex-direction: column;
   margin: 100px auto 0;
 
-  h1 {
-    margin-bottom: 50px;
-
-    @media (max-width: ${getMedia('navbar')}) {
-      padding-inline: 20px;
-    }
-  }
-
   img {
     margin-top: 50px;
     width: 40%;
     min-width: 350px;
+  }
+`;
+
+const H1 = styled(motion.h1)`
+  margin-bottom: 50px;
+
+  @media (max-width: ${getMedia('navbar')}) {
+    padding-inline: 20px;
   }
 `;
 
@@ -44,7 +45,13 @@ const Projects: Page<{
 
   return (
     <Main>
-      <h1>{t.projectsSecondHeader}</h1>
+      <H1
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        {t.projectsSecondHeader}
+      </H1>
       <CardList data={projectsArray} />
     </Main>
   );
