@@ -107,7 +107,7 @@ const AboutHero = () => {
         <ImageWrapper
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
         >
           <Image src={FaceImage} layout="responsive" width={300} height={300} />
           <FaReact />
@@ -117,7 +117,7 @@ const AboutHero = () => {
         <Card
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
         >
           <AppleBar>
             <svg height="10" width="10">

@@ -62,17 +62,25 @@ const TextContainer = styled.div`
   }
 `;
 
+const listItemAnimationVariant = {
+  hidden: {
+    scale: 0.7,
+    opacity: 0,
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: { duration: 0.5, delay: 0.3 },
+  },
+};
+
 const Card: React.FC<{ name: string; image: string; url: string }> = ({ name, image, url }) => {
   const router = useRouter();
   const { locale } = router;
   const t = locale === 'en' ? en : pl;
 
   return (
-    <Wrapper
-      initial={{ scale: 0.5, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
+    <Wrapper variants={listItemAnimationVariant} initial="hidden" animate="visible">
       <ImageContainer>
         <Image src={image} alt="certificate" layout="fill" />
       </ImageContainer>
